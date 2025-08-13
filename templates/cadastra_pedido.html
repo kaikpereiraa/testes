@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Pedido</title>
+</head>
+<body>
+    <h1>Cadastrar Pedido</h1>
+
+    <form method="POST">
+        <label>Nome do Cliente:</label>
+        <input type="text" name="cliente" required><br>
+
+        <label>Escolha a Comida:</label>
+        <select name="comida_id" required>
+            {% for comida in comidas %}
+                <option value="{{ comida['id'] }}">{{ comida['nome'] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Cadastrar Pedido</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
