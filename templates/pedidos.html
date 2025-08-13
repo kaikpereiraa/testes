@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+</head>
+<body>
+    <h1>Pedidos Registrados</h1>
+
+    {% if pedidos %}
+        <ul>
+        {% for pedido in pedidos %}
+            <li>Cliente: <b>{{ pedido["cliente"] }}</b> - Comida: <b>{{ pedido["comida_nome"] }}</b></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum pedido registrado.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
